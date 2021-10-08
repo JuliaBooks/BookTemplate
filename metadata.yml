@@ -1,0 +1,48 @@
+---
+title: Your Awesome Book
+subtitle: A Template to Get Your Book Started
+author: Anonymous
+
+# This affects things as whether to include a white page before each chapter in the PDF.
+# See the `.tex` template for more information.
+# For reports, set `book: false`.
+book: true
+
+# Licenses; can be empty.
+html-license: All Rights Reserved. Copyright ©YEAR
+tex-license: All Rights Reserved. Copyright ©YEAR
+
+pdf-footer: All Rights Reserved. Copyright ©YEAR
+
+# Make margins a bit smaller. LaTeX has huge default margins.
+geometry:
+  - top=20mm
+  - left=24mm
+  - right=24mm
+  - bottom=28mm
+
+lang: en-US
+
+# tags: [research, book]
+number-sections: true
+
+code-block-font-size: \scriptsize
+
+titlepage: true
+linkReferences: true
+bibliography: bibliography.bib
+link-citations: true
+
+# These table of contents settings only affect the PDF.
+toc: true
+toc-depth: 2
+
+# Cross-reference prefixes.
+eqnPrefix: Equation
+figPrefix: Figure
+tblPrefix: Table
+secPrefix: Section
+
+# Keyboard shortcuts.
+mousetrap: true
+---

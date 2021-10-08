@@ -1,0 +1,20 @@
+[projects]
+
+  [projects.default]
+  contents = [
+    "about",
+    "appendix",
+    "references",
+  ]
+
+  # Full URL, required for the sitemap and robots.txt.
+  online_url = ""
+
+  # Extra directories to be copied.
+  extra_directories = []
+
+  # Port used by serve()
+  port = 8000
+
+  # Syntax highlighting.
+  highlight = true
