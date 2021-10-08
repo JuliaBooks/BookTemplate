@@ -1,6 +1,10 @@
 name: CI
 
 on:
+  # This schedule is not required for most books.
+  # It's just used to run this template occasionally to test whether the template still works.
+  schedule:
+    - cron: '00 04 * * 6'
   push:
     branches:
       - main
