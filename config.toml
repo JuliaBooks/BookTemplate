@@ -8,13 +8,13 @@
   ]
 
   # Full URL, required for the sitemap and robots.txt.
-  online_url = ""
+  online_url = "https://example.com"
 
   # Extra directories to be copied.
   extra_directories = []
 
   # Port used by serve()
-  port = 8000
+  port = 8004
 
   # Syntax highlighting.
   highlight = true

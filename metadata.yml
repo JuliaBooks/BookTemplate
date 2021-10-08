@@ -1,18 +1,12 @@
 ---
 title: Your Awesome Book
 subtitle: A Template to Get Your Book Started
-author: Anonymous
+author:
+  - Example author 1
+  - Example author 2
 
-# This affects things as whether to include a white page before each chapter in the PDF.
-# See the `.tex` template for more information.
-# For reports, set `book: false`.
-book: true
-
-# Licenses; can be empty.
-html-license: All Rights Reserved. Copyright ©YEAR
-tex-license: All Rights Reserved. Copyright ©YEAR
-
-pdf-footer: All Rights Reserved. Copyright ©YEAR
+html-license: <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+tex-license: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
 
 # Make margins a bit smaller. LaTeX has huge default margins.
 geometry:
@@ -23,26 +17,24 @@ geometry:
 
 lang: en-US
 
-# tags: [research, book]
+bibliography: files/bibliography.bib
+
+tags: [example, book]
 number-sections: true
 
 code-block-font-size: \scriptsize
 
-titlepage: true
-linkReferences: true
-bibliography: bibliography.bib
-link-citations: true
+# Only used in PDF.
+titlepage-top: >
+  \begin{tabular}{l}
+  Example author 1\\
+  Example institute 1\\
+  \\
+  Example author 2\\
+  Example institute 2\\
+  \\
+  \end{tabular}
 
-# These table of contents settings only affect the PDF.
-toc: true
-toc-depth: 2
-
-# Cross-reference prefixes.
-eqnPrefix: Equation
-figPrefix: Figure
-tblPrefix: Table
-secPrefix: Section
-
-# Keyboard shortcuts.
-mousetrap: true
+titlepage-bottom: >
+  \url{https://example.com}
 ---
