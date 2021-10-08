@@ -1,0 +1,33 @@
+linkReferences: true
+pdf-footer: "All Rights Reserved. Copyright ©YEAR"
+author: "Anonymous"
+secPrefix: "Section"
+tex-license: "All Rights Reserved. Copyright ©YEAR"
+header-left: "foobar"
+html-license: "All Rights Reserved. Copyright ©YEAR"
+book: true
+bibliography: "bibliography.bib"
+toc-depth: 2
+code-block-font-size: "\\scriptsize"
+links-as-notes: true
+link-citations: true
+title: "Your Awesome Book"
+lang: "en-US"
+tags:
+  - "pandoc"
+  - "Books.jl"
+  - "JuliaLang"
+tocdepth: 1
+toc: true
+titlepage: true
+subtitle: "A Template to Get Your Book Started"
+tblPrefix: "Table"
+geometry:
+  - "top=20mm"
+  - "left=24mm"
+  - "right=24mm"
+  - "bottom=28mm"
+figPrefix: "Figure"
+eqnPrefix: "Equation"
+mousetrap: true
+number-sections: true
