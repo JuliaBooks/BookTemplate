@@ -1,8 +1,15 @@
 module BookTemplate
 
-using Reexport
-@reexport using Books
-@reexport using DataFrames
+using Reexport: @reexport
+@reexport begin
+using Books: build_all, gen
+using DataFrames:
+    DataFrame,
+    filter!,
+    filter,
+    select!,
+    select
+end # @reexport
 
 """
     build()
@@ -10,10 +17,11 @@ using Reexport
 This function is called during CI.
 """
 function build()
-    println("Building ResearchBook")
-    # Fail on error to avoid broken websites.
-    Books.gen(; fail_on_error = true)
-    Books.build_all()
+    println("Building Example Book")
+    # To avoid publishing broken websites.
+    fail_on_error = true
+    Books.gen(; fail_on_error)
+    Books.build_all(; fail_on_error)
 end
 
 end # module
