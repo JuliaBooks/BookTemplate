@@ -15,3 +15,5 @@
 
   # Port used by serve()
   port = 8004
+
+  output_filename = "booktemplate"
