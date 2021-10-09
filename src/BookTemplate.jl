@@ -20,8 +20,8 @@ function build()
     println("Building Example Book")
     # To avoid publishing broken websites.
     fail_on_error = true
-    Books.gen(; fail_on_error)
-    Books.build_all(; fail_on_error)
+    gen(; fail_on_error)
+    build_all(; fail_on_error)
 end
 
 end # module
