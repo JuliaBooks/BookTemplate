@@ -13,8 +13,6 @@ using Reexport: @reexport
 
 export M, example_dataframe
 
-const M = BookTemplate
-
 include("data.jl")
 
 """
@@ -31,4 +29,3 @@ function build()
 end
 
 end # module
-
