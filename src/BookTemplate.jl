@@ -1,20 +1,21 @@
 module BookTemplate
 
 using Reexport: @reexport
-@reexport begin
-using Books:
+@reexport using Books:
     build_all,
     gen
-using DataFrames:
+@reexport using DataFrames:
     DataFrame,
     filter!,
     filter,
     select!,
     select
-end # @reexport
+
+export M, example_dataframe
+
+const M = BookTemplate
 
 include("data.jl")
-export example_dataframe
 
 """
     build()
