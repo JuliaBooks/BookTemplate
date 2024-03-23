@@ -1,0 +1,295 @@
+%
+\documentclass[
+  notoc % Suppress Tufte style table of contents.
+]{tufte-book}
+
+% Required Tufte packages.
+\usepackage{changepage} % or changepage
+\usepackage{fancyhdr}
+\usepackage{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{bibentry}
+\usepackage{optparams}
+\usepackage{paralist}
+\usepackage{placeins}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{textcase}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{xcolor}
+\usepackage{xifthen}
+
+\geometry{paperheight=10in,paperwidth=7in,marginparwidth=30mm,marginparsep=2mm,bindingoffset=10mm,top=10mm,inner=8mm,outer=8mm,bottom=16mm,includehead,includemp}
+
+% Tufte vs. Pandoc workaround.
+% Issue: https://github.com/Tufte-LaTeX/tufte-latex/issues/64.
+\renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+\renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+
+% \setmainfont{TeX Gyre Pagella}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\setmainfont{texgyrepagella}[
+  Extension = .otf,
+  UprightFont = *-regular,
+  BoldFont = *-bold,
+  ItalicFont = *-italic,
+  BoldItalicFont = *-bolditalic,
+]
+
+\usepackage{fontspec}
+\setmonofont{JuliaMono-Medium.ttf}[
+    % Do not remove the trailing forward slash.
+    Path = /home/runner/.julia/artifacts/45f34ceb7f1b7b67949715de56b123afeaa72e47/juliamono-0.045/,
+    Contextuals = Alternate,
+    Ligatures = NoCommon
+]
+
+\newfontface\JuliaMonoRegular{JuliaMono-Regular.ttf}[
+    Path = /home/runner/.julia/artifacts/45f34ceb7f1b7b67949715de56b123afeaa72e47/juliamono-0.045/,
+    Contextuals = Alternate,
+    Ligatures = NoCommon
+]
+
+\newfontface\JuliaMonoBold{JuliaMono-Bold.ttf}[
+    Path = /home/runner/.julia/artifacts/45f34ceb7f1b7b67949715de56b123afeaa72e47/juliamono-0.045/,
+    Contextuals = Alternate,
+    Ligatures = NoCommon
+]
+
+
+
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\usepackage{float}
+\floatplacement{figure}{H}
+
+% Listings Julia syntax definition.
+\input{/home/runner/.julia/packages/Books/odNoe/defaults/julia_listings.tex}
+
+% Unicode support.
+\input{/home/runner/.julia/packages/Books/odNoe/defaults/julia_listings_unicode.tex}
+
+% Used by Pandoc.
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}
+}
+\newcommand{\passthrough}[1]{#1}
+
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+
+% Source: Wandmalfarbe/pandoc-latex-template.
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\definecolor{linkblue}{HTML}{117af2}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  citecolor=linkblue,
+  linkcolor=linkblue,
+  urlcolor=linkblue,
+  linktoc=page, % Avoid Table of Contents being nearly completely blue.
+  pdftitle={Your Awesome Book},
+  pdfauthor={Example author 1; Example author 2},
+  pdflang={en-US},
+  breaklinks=true,
+  pdfcreator={LaTeX via Pandoc}%
+}
+\urlstyle{same} % disable monospaced font for URLs
+
+\title{Your Awesome Book}
+\author{\noindent{Example author 1}\\[3mm] \noindent{Example author
+2}\\[3mm] }
+\date{}
+
+% Re-enable section numbering which was disabled by tufte.
+\setcounter{secnumdepth}{2}
+
+% Fix captions for longtable.
+% Thanks to David Carlisle at https://tex.stackexchange.com/a/183344/92217.
+\makeatletter
+\def\LT@makecaption#1#2#3{%
+  \noalign{\smash{\hbox{\kern\textwidth\rlap{\kern\marginparsep
+  \parbox[t]{\marginparwidth}{\vspace{12pt}%
+\@tufte@caption@font \@tufte@caption@justification \noindent
+   #1{#2: }\ignorespaces #3}}}}}}
+\makeatother
+
+% Doesn't seem to do anything.
+\usepackage{float}
+\floatplacement{figure}{H}
+\floatplacement{table}{H}
+
+% Reduce large spacing around sections.
+\titlespacing*{\chapter}{0pt}{5pt}{20pt}
+\titlespacing*{\section}{0pt}{2.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.75ex plus 1ex minus .2ex}{1.0ex plus.2ex}
+
+\titleformat{\chapter}%
+  [hang]% shape
+  {\normalfont\huge\itshape}% format applied to label+text
+  {\huge\thechapter}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% Reduce spacing in table of contents.
+\usepackage{etoolbox}
+\makeatletter
+\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-3\p@}}}{}{}
+\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{-4\p@}}}{}{}
+\pretocmd{\subsection}{\addtocontents{toc}{\protect\addvspace{-5\p@}}}{}{}
+\makeatother
+
+% Long texts are harder to read than tables.
+% Therefore, we can reduce the font size of the table.
+\AtBeginEnvironment{longtable}{\footnotesize}
+
+% Some space between paragraphs is necessary because code blocks can output single line paragraphs.
+\setlength\parskip{1em plus 0.1em minus 0.2em}
+
+% For justified text.
+\usepackage{ragged2e}
+
+% tufte-book disables subsubsections by default.
+% Got this definition back via `\show\subsubsection`.
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+
+% URL line breaks.
+\usepackage{xurl}
+
+% Probably doesn't hurt.
+\usepackage{marginfix}
+
+
+
+
+\begin{document}
+
+\makeatletter
+\thispagestyle{empty}
+\vfill
+{\Huge\bf
+\noindent
+\@title
+}\\[1in]
+{\Large
+\noindent
+\@author
+}
+\makeatother
+
+\makeatletter
+\newpage
+\thispagestyle{empty}
+\vfill
+{\noindent
+\begin{tabular}{l} Example author 1\\ Example institute 1\\ \\ Example author 2\\ Example institute 2\\ \\ \end{tabular}
+}
+\vfill
+{\small
+\url{https://booktemplate.huijzer.xyz}
+
+Version: 2024-03-23
+
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+}
+\makeatother
+
+
+% Don't remove this or authors will show up in header of every page.
+\frontmatter
+\mainmatter
+\fancyfoot[C]{\url{https://github.com/johndoe/Book.jl}}
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+% Justify text.
+\justifying
+
+% parindent seems to be set from within another class too.
+% it is really not useful here because it will also indent lines directly after
+% code blocks. Which most of the times not useful.
+\setlength{\parindent}{0pt}
+
+\hypertarget{sec:about}{%
+\chapter{About}\label{sec:about}}
+
+This is an example book, built via
+\href{https://books.huijzer.xyz}{Books.jl} and is made possible by the
+Julia programming language
+(\protect\hyperlink{ref-bezanson2017julia}{Bezanson et al., 2017}) and
+\href{https://github.com/jgm/pandoc}{pandoc}.
+
+\hypertarget{appendix}{%
+\chapter*{Appendix}\label{appendix}}
+\addcontentsline{toc}{chapter}{Appendix}
+
+This is the appendix.
+
+\hypertarget{tbl:example_dataframe}{}
+\begin{longtable}[]{@{}rrr@{}}
+\caption{\label{tbl:example_dataframe}Example dataframe.}\tabularnewline
+\toprule()
+A & B & C \\
+\midrule()
+\endfirsthead
+\toprule()
+A & B & C \\
+\midrule()
+\endhead
+1 & 1 & 1 \\
+2 & 2 & 2 \\
+3 & 3 & 3 \\
+4 & 4 & 4 \\
+5 & 5 & 5 \\
+6 & 6 & 6 \\
+\bottomrule()
+\end{longtable}
+
+\hypertarget{references}{%
+\chapter*{References}\label{references}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-bezanson2017julia}{}}%
+Bezanson, J., Edelman, A., Karpinski, S., \& Shah, V. B. (2017). Julia:
+A fresh approach to numerical computing. \emph{SIAM Review},
+\emph{59}(1), 65--98.
+
+\end{CSLReferences}
+
+\backmatter
+
+\end{document}
