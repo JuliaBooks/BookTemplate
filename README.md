@@ -2,4 +2,4 @@
 
 Example book
 
-See <https://booktemplate.huijzer.xyz/> for more information.
+**SINCE THIS PROJECT IS BARELY USED, IT IS ARCHIVED TO REDUCE THE NUMBER OF PROJECTS THAT I HAVE TO KEEP TRACK OF.**
